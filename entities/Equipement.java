@@ -1,7 +1,6 @@
 package tn.esprit.autoloc.entities;
 import jakarta.persistence.*;
 import lombok.*;
-import java.util.*;
 @Entity
 @Data
 @NoArgsConstructor

@@ -38,18 +38,14 @@ public class AgenceServiceImpl implements ServiceI<Agence> {
     @Override
     public Agence update(Agence entity) {
         // On vérifie que l'entité existe bien avant de faire un merge
-        if (entity.getIdAgence() == null || !agenceRepository.existsById(entity.getIdAgence())) {
-            throw new RuntimeException("Mise à jour impossible : agence inexistante");
-        }
+
         log.info("Mise à jour de l'agence id={}", entity.getIdAgence());
         return agenceRepository.save(entity);
     }
 
     @Override
     public void remove(Long id) {
-        if (!agenceRepository.existsById(id)) {
-            throw new RuntimeException("Suppression impossible : agence inexistante id=" + id);
-        }
+
         log.info("Suppression de l'agence id={}", id);
         // Cascade ALL + orphanRemoval sur vehicules et employes -> nettoyage automatique
         agenceRepository.deleteById(id);

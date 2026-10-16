@@ -5,7 +5,6 @@ import jakarta.persistence.*;
 import lombok.*;
 import tn.esprit.autoloc.enums.RoleEmploye;
 
-import java.util.*;
 @Entity
 @Data
 @NoArgsConstructor

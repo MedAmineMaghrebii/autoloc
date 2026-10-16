@@ -4,7 +4,6 @@ import lombok.*;
 import tn.esprit.autoloc.enums.StatutReservation;
 
 import java.time.LocalDate;
-import java.util.*;
 
 @Entity
 @Data
@@ -40,4 +39,15 @@ public class Reservation {
         this.contrat = c;
         if (c != null) c.setReservation(this);
     }
+
+
+
+
+
+
+
+
+
+
+
 }
