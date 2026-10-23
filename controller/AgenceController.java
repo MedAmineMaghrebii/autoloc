@@ -1,6 +1,7 @@
 package tn.esprit.autoloc.controller;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import tn.esprit.autoloc.entities.Agence;
 import tn.esprit.autoloc.service.ServiceI;
@@ -8,7 +9,7 @@ import tn.esprit.autoloc.service.ServiceI;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/agences")
+@RequestMapping("/agences") // <-- ON ENLÈVE /api ICI
 @RequiredArgsConstructor
 public class AgenceController {
 
@@ -25,6 +26,7 @@ public class AgenceController {
     }
 
     @PostMapping
+    @ResponseStatus(HttpStatus.CREATED) // <-- AJOUTÉ : Renvoie 201
     public Agence create(@RequestBody Agence agence) {
         return agenceService.add(agence);
     }
@@ -35,6 +37,7 @@ public class AgenceController {
     }
 
     @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT) // <-- AJOUTÉ : Renvoie 204
     public void delete(@PathVariable Long id) {
         agenceService.remove(id);
     }
